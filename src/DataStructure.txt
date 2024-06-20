@@ -1,0 +1,90 @@
+1. Which data structure is well-suited to efficiently implement a priority queue?
+
+  - answer - 
+  a B-tree
+
+2. You have a graph representing a road map, with destinations as nodes and distances as edge weights.
+Which algorithm might you use to find the shortest route between two destinations?
+
+  - answer -
+  Dijkstra's algorithm
+
+3. Which algorithm can be used to obtain the elements in a binary search tree in sorted order?
+
+  - answer -
+  In-order traversal
+
+4. Suppose you need to write a program to solve a maze as represented in ASCII characters as follows. How might you best do this?
+
+  - answer -
+  We need to view the maze as a graph where each node(space in the maze) has edges to the spaces beside it. Then we can run A*(or BFS) over this graph
+
+  - others -
+  A recursive function that takes an x, y coordinate pair and recursively calls itself with neighboring coordinates will eventually find the optimal path through the maze
+  We can create a priority queue with a list of active cells (with priority of how far they are from the exit). Then we can just visit the highest priority cell and add its neighbors to the queue.
+  We can apply the left-hand rule to solve this maze. if we start at the entry point and always move toward the left wall if possible, we'll eventually emerge from the exit point.
+
+5. Popular languages such as Java, C++, and Go all provide implementations of a priority queue.
+All of these implementations are based on what underlying data structure?
+
+  - answer -
+  A heap
+
+6. Which of the following sorting algorithms has the slowest worst-case time?
+
+  - answer -
+  HeapSort
+
+7. Hash map implementations group key hashes into "buckets". In what situation would there be multiple key hashes in one bucket?
+
+  - answer -
+  When the Hash Map is optimized for look-up by concurrent threads
+
+8. Which of the following is not an example of a greedy algorithm?
+
+  - answer -
+  Finding the shortest path on a graph by iteratively selecting the closest unvisited vertex
+
+9. you are writing an application that allows users to open documents, make changes, and potentially undo any number of changes using Ctrl-Z.
+Which data structure is most appropriate for sorting the user's changes to a document?
+
+ - answer -
+  A stack
+
+10. You have to sort a list of 100,000 items in place. Its almost sorted, except that five pairs of items have been swapped. 
+Which algorithm will sort the array fastest?
+
+  - answer -
+  Insertion sort
+
+11. A probabilistic skip list is generated using a fixed probability of 1/2. If n is the number of items in the skip list, what is the average number of layers in the skip list?
+
+  - answer - 
+  log2n
+
+12. In complexity analysis, which of the following is used to describe an asymptotically tight bound?
+
+  - answer -
+  Big O
+
+13. Which data structure has the same asymptotic time bounds for lookup and insertion as a skip list?
+
+  - answer - 
+  a blanced search tree
+
+14. What does is mean for a sorting algorithm to be stable?
+
+  - answer -
+  Equal elements preserve their original order
+
+  - others -
+  Randomness is not used in the algorithm
+  Expected running time is the same on all inputs
+  Only binary comparisons(eg., less than) are used
+
+15. Your team would like to use an algorithm on a small data set to help train new team members.
+The algorithm needs to: step through a list to be sorted, comparing each pair of adjacent items, and swap them if they are in the incorrect order.
+Which algorithm might work best to help educate the new team members and also fulfill the requirements?
+
+  - answer -
+  Bubble sort

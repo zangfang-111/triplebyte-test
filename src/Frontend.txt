@@ -1,0 +1,171 @@
+1. Suppose you receive data from an API as a string containing a JSON Object. How should you convert this string into a Javascript object?
+
+  - answer - 
+  JSON.parse(str)
+
+  - others -
+  str.to_json()
+  eval(str)
+  JSON.stringify(str)
+
+2. How do Webpack and Babel differ?
+
+  - answer - 
+  Webpack is a module bundler, whereas Babel is a Javascript compiler.
+
+  - others -
+  Webpack and Babel fill similar roles, but Webpack offers hot module replacement whereas Babel supports inlining CSS and images.
+  Webpack and Babel are competing asset pipelines. Webpack is configuration-based and more opinionated, whereas Babel offers more flexibility by giving explicit control over the process.
+  Webpack lets developers use new Javascript features, and Babel resolves module dependencies.
+
+3. When testing your website against your API, you get the following error:
+  Origin https://localhost:8080/ is not allowed by Access-Control-Allow-Origin.
+  Why does this occur?
+
+  - answer - 
+  The same-origin policy restricts how scripts interact with resources on another origin. Make sure your API allows cross-origin requests.
+
+  - others - 
+  Modern browsers have sandboxed tabs, which cannot make cross-site AJAX requests. Proxy the request through your server instead.
+  Browsers automatically include a convenient Origin header in cross-site requests, but it can be overridden to suppress this warning.
+  Cross-site requests require a preflight CONNECT request to be sent ahead of time. Make sure you manually send this request before accessing the external domain.
+
+4. What does it mean when a PATCH request has the following header?
+  If-Match: W/"dl4c91f83b4554b6"
+
+  - answer -
+  The PATCH instructions in the Request should only be applied by the server if the resource is byte-for-byte identical to the version referenced by the "dl4c91f83b4554b6" ETag.
+
+  - others -
+  The server should NOT include PATCH instructions in the Response body if the resource is semantically equivalent to the version referenced by the "dl4c91f83b4554b6" ETag.
+  The PATCH instructions in the Request should only be applied by the server if the resource is semantically equivalent to the version referenced by the "dl4c91f83b4554b6" ETag.
+  The server should NOT include PATCH instructions in the Response body if the resource is byte-for-byte identical to the version referenced by the "dl4c91f83b4554b6" ETag.
+
+5. For security, browsers enforce the "Same-origin policy". Suppose your script is served from:
+  https://app.example.com/index.js in modern browsers, which of the following URLs are considered to have the same origin?
+
+  - answer -
+  https://app.example.com/static/imgs/icon.png
+
+  - others -
+  https://app.example.com:591/index.js
+  https://app.example.com/users/sally
+  https://example.com/index.html
+
+6. For the following WebSocket, which of the following correctly registers messageHandler() to receive incoming messages?
+
+  const socket = new WebSocket('wss://example.org')
+  function messageHandler(event) {
+    console.log(event.data)
+  }
+
+  - answer - 
+  window.addEventListener('message', messageHandler)
+
+  - others -
+  window.onmessage = messageHandler
+  socket.onmessage = messageHandler
+  socket.onmessage(messageHandler)
+
+7. Why are more developers using new style sheet languages like LESS and SASS instead of CSS?
+
+  - answer - 
+  They compile to CSS, but provide convenient syntax for nesting, variables, and other features.
+
+  - others -
+  They use an optimized subset of CSS which excutes more efficiently.
+  They introduce new functionality not present in CSS, like styling parent nodes when their children match a selector.
+  They enable more expressive templating by allowing Javascript to execute inside styles.
+
+8. Why does the following tag appear in HTML pages?
+  <meta content="4sWPhTlJAmt1IcyNq1FCyivsAVhHqjiDCKRXOgOQock=" name="csrf-token" />
+
+  - answer - 
+  It's used to prevent request forgery from external sites.
+
+  - others -
+  It's a user fingerprint used to track user sessions across requests.
+  It's a cross-reference token used to correlate the response with server-side logs.
+  It's a signed token used to verify the user id for AJAX requests on the page.
+
+9. Which is an example of a "multipart" MIME type?
+
+  - answer - 
+  Form data in a POST request
+
+  - others -
+  The body of a GET request
+  Multi-threaded Javascript
+  Web fonts
+
+10. You have a web app that allows users to chat with their friends. The app uses WebSockets to send text data.
+  You would like to add a feature to allow users to send binary files as "blobs". 
+  which of the following statements is true?
+
+  - answer - 
+  Your existing WebSocket can send and receive both text and binary formats, but you have to check the type with instanceof when receiving incoming messages.
+
+  - others -
+  In order to use the same WebSocket connection, you will need to implement a protocol to signal that the next message will be binary so that the settings of the WebSocket connection can be updated.
+  WebSockets messages can only contain text data. So the binary files will need to be encoded in a text-compatible encoding, such as Base64.
+  A single WebSocket connection cannot handle both text and binary data. You will need to open an additional WebSocket.
+
+11. Complete the following sentence: When multiple, conflicting CSS rules match the same element, ________.
+
+  - answer -
+  the most specific rule is applied
+
+  - others -
+  the stylesheet is invalid
+  the first rule to be defined is applied
+  the element might "flicket" from the first and second rules being applied quickly in order.
+
+12. To create web apps that can gracefully handle a lost network connection and sync data in a background thread after the device comes back online, you should use
+
+  - answer -
+  A Service Worker
+
+  - others -
+  The appCache API
+  A worklet
+  A Shared Worker
+
+13. When browsers don't support a new feature, developers turn to polyfills. How do these work?
+
+  - answer -
+  A polyfill implements an API so that developers can build against a consistent interface, even on unsupported browsers.
+
+  - others -
+  A polyfill replaces the CSS engine on a page to support new CSS3 features like animations and flexbox.
+  A polyfill is a wrapper around a lightweight version of the V8 runtime, which contains working implementations for HTML5 features.
+  A polyfill sets flags on the browser's runtime that enable experimental featuers that aren't on the stable channel yet.
+
+14. The following web application has an "index.html" that links to 3 additional resources.
+  index.html
+      script.js
+      styles.css
+      icon.png
+  If this application is requested and served using HTTP/2, how many total network connections will be opened between the browser and the server?
+
+
+  - answer -
+  1
+
+15. Suppose we have a page with the following 2 divs:
+  what does the page look like after the following styles are applied?
+
+  <style>
+    div {
+      width: 50px;
+      height: 100px;
+      padding: 25px;
+    }
+    #elem1 {
+      box-sizing: border-box;
+      background-color: blue;
+    }
+    #elem2 {
+      background-color: red;
+    }
+  </style>
+

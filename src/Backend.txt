@@ -1,0 +1,136 @@
+1. which of the following HTTP request methods should not alter the state of the server?
+
+  - answer -
+  GET
+
+2. What kind of SQL statement retrieves data from a table?
+
+  - answer -
+  SELECT
+
+3. What is a common criticism of the singleton design pattern?
+
+  - answer -
+  It introduces unnecessary global state into an application
+
+  - others -
+  It does not allow lazy initialization
+  It can not be thread-safe
+  It is not object-oriented
+
+4. What is a sticky session?
+
+  - answer -
+  A sticky session is a load balancing technique where each client is consistently mapped to a specific server. this allows the servers to store state locally
+
+  - others -
+  A sticky session is a particularly expensive HTTP request. Identifying sticky sessions is key to optimizing a web backend
+  A sticky session is a user session where session data is stored directly in a cookie(rather than storing just an ID). This allows faster processing on the serer side
+  A sticky session is a long running HTTP connection. the client can hold this connection open, and thus reduce the time it takes to make a request.
+
+5. Which of the following is not a specification of semantic versioning?
+
+  - answer -
+  A minor version may be used to mark functionality as deprecated
+
+
+  - others -
+  Pre-release versions and build metadata are allowed
+  A patch version may change the public API if it is backwards compatible
+  Major version 1 is used to indicate a stable public API
+
+6. Which of the following is a description of a write-through cache coherence strategy?
+
+  - answer -
+  Writing is done synchronously to the cache and its backing store.
+
+  - others -
+  Writing is done to the cache first, and later to the backing store when the entry is purged
+  A time-to-live is written with the cache entry
+  The least recently used entries are purged as needed for space
+
+7. What is a risk of using a single sign-on scheme such as OpenID Connect?
+
+  - answer - 
+  It increases the impact from a breach of authentication credentials
+
+  - others -
+  It is a proprietary standard
+  Third parties must store user passwords
+  It prevents using multi-factor authentication
+
+8. Which is not an advantage of vendoring third-party dependencies into a project's code base?
+
+  - answer -
+  Versions are pinned
+
+
+  - others -
+  Local patches can be maintained
+  Builds and deployments are not dependent on network access
+  Decreased repository size
+
+9. Suppose an object-relational mapping (ORM) library syncs a database from source code models. what is an advantage of supporting migrations of existing tables?
+
+  - answer - 
+  To guarantee test database schemas match the production schema
+
+
+  - others -
+  To populate test fixtures
+  To allow additional constraints of the tables
+  Faster creation of test database
+  
+10. Which HTTP request header is used to identify the URL of the resource from which a request URL was obtained?
+
+  - answer -
+  Referer
+
+11. Say you work for a startup that has hit hockey stick growth. you need to horizontally scale the database to support the increased usage. what are the trade offs between replicating vs sharding your database?
+
+  - answer -
+  Sharding is likely better to support higher write load. Replication is likely better for increased read load.
+
+  - others -
+  Peplication is easy, but does not bring all the benefits of complete sharding. if you can fully shard, you should
+  Replication maintains better consistency gurantees at the cost of partition tolerance
+  Sharding makes partition tolerance harder (because required data might be on a shard on the wrong side of a network partition), but supports better availability gurantees.
+
+12. Say you are building a web forum application, where users can create accounts and post messages on forums about a variety of subjects. what might your relational DB schema look like?
+
+  - answer -
+  The schema will likely have a "users" table with info on each registered user(name, password hash, etc), and a "forums" table with info on each forum(like forum name).
+    A "messages" table can then have the text of each message, a foreign key to the users table, and a foreign key to the forums table.
+  
+  - others -
+  It's most flexible to use a stored procedure to pull together the data we need dynamically.
+  The schema will probably feature a "posts" table with the text of every message posted, the name of the user who posted it, eg. "John Smith", and the name of the forum to which it was posted.
+  A good schema is to have a "messages" table that contains the text of every message, and "forums" table for each forum. Because we need  a many-to-any relationship between message and forums, we'll allows
+    need an association table between the two (message-postings) associating messages to forums.
+
+13. Which HTTP method would efficiently check whether a resource URL exists?
+
+  - answer - 
+  HEAD
+
+14. As part of a backend architecture, what is a potential disadvantage of using serverless computing?
+
+  - answer -
+  Higher latency of services that are used infrequently
+
+  - others -
+  Complexity from handling multithreaded synchronization
+  Higher cost from unused resources
+  Having to manually set up elasticity
+
+15. Your web application, comprised of your custom application code and a relational database, was designed to run on a single server.
+  To prepare it for production, you simply created three instances of this server behind a load balancer.
+  Now, many of your users are complaining that some pages keep switching between old and new content when navigating between pages. what is the most likely cause of this behavior?
+
+  - answer - 
+  This is a browser caching issues due to a mismatch between caching headers sent by each server.
+
+  - others -
+  This caching of the DB tables is happening in memory without replication or invalidation against the other instances.
+  The load balancer is using an IP hash policay to route requests from the same client to the same server instance.
+  The load balanecr is sending traffic to only one instance.
